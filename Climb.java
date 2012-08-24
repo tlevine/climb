@@ -1,4 +1,5 @@
 import java.io.File;
+
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.services.glacier.AmazonGlacierClient;
@@ -28,7 +29,10 @@ public class Climb {
     String archiveName = archiveFile.getName();
     System.out.println(archiveName);
 
-    AWSCredentials credentials = new PropertiesCredentials("/home/tlevine/.aws.properties");
+    AWSCredentials credentials = new PropertiesCredentials(
+      Climb.class.getResourceAsStream("/home/tlevine/.aws.properties")
+    //Climb.class.getResourceAsStream("aws.properties")
+    );
 
     // Upload
     AmazonGlacierClient client = new AmazonGlacierClient(credentials);
