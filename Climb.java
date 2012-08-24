@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.PropertiesCredentials;
@@ -29,14 +30,18 @@ public class Climb {
     String archiveName = archiveFile.getName();
     System.out.println(archiveName);
 
-    AWSCredentials credentials = new PropertiesCredentials(
-      Climb.class.getResourceAsStream("/home/tlevine/.aws.properties")
-    //Climb.class.getResourceAsStream("aws.properties")
-    );
-
-    // Upload
-    AmazonGlacierClient client = new AmazonGlacierClient(credentials);
-//  ArchiveTransferManager atm = new ArchiveTransferManager(client);
-//  String archiveId = atm.upload(vaultName, archiveName, archiveFile).getArchiveId();
+    try {
+      AWSCredentials credentials = new PropertiesCredentials(
+        Climb.class.getResourceAsStream("/home/tlevine/.aws.properties")
+      //Climb.class.getResourceAsStream("aws.properties")
+      );
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
+    } finally {
+      // Upload
+      AmazonGlacierClient client = new AmazonGlacierClient(credentials);
+      //ArchiveTransferManager atm = new ArchiveTransferManager(client);
+      //String archiveId = atm.upload(vaultName, archiveName, archiveFile).getArchiveId();
     }
+  }
 }
