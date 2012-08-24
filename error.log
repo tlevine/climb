@@ -1,0 +1,7 @@
+$ javac Climb.java -classpath $PWD/aws-java-sdk-1.3.18/lib/aws-java-sdk-1.3.18.jar
+Climb.java:31: cannot find symbol
+symbol  : constructor PropertiesCredentials(java.lang.String)
+location: class com.amazonaws.auth.PropertiesCredentials
+    AWSCredentials credentials = new PropertiesCredentials("/home/tlevine/.aws.properties");
+                                 ^
+1 error
