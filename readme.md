@@ -4,7 +4,16 @@ Climb is an interface to [Glacier](https://console.aws.amazon.com/glacier/home)
 for the shell.
 
 ## Install
+### Easy way
 
+
+### Compiling from source
+
+    #!/bin/sh
+    wget http://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip
+    unzip aws-java-sdk*.zip
+
+    javac Climb.java
 
 ## Configure
 Store your AWS
