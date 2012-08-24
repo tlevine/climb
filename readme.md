@@ -13,7 +13,7 @@ for the shell.
     wget http://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip
     unzip aws-java-sdk*.zip
 
-    javac Climb.java
+    javac Climb.java -classpath $PWD/aws-java-sdk-1.3.18/lib/aws-java-sdk-1.3.18.jar
 
 ## Configure
 Store your AWS
